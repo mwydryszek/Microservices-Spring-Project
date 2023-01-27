@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - include:
+      file: changes/20221220122000_init_tag.yml
+      relativeToChangelogFile: true
+  - include:
+      file: changes/20221220124800_create_table_user.yml
+      relativeToChangelogFile: true
+  - include:
+      file: changes/20230126172100_create_table_token_blacklist.yml
+      relativeToChangelogFile: true
+
+

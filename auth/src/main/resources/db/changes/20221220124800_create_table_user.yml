@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20230126172100_create_table_token_blacklist.yml
+      author: mwydryszek
+      changes:
+        - createTable:
+            tableName: person
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: PERSON_PK
+                  name: ID
+                  type: NUMBER(19)
+              - column:
+                  name: USERNAME
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: PASSWORD
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: EMAIL
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ACTIVE
+                  type: NUMBER(1)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 20221220124800_create_user_seq
+      author: mwydryszek
+      changes:
+        - createSequence:
+            incementBy: 1
+            sequenceName: user_seq
+            startValue: 1
+            minValue: 1
+            maxValue: 9223372036854775807
