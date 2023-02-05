@@ -2,13 +2,12 @@ package pl.tt.auth.model;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
-@Builder
-public class AuthenticationDTO {
+@SuperBuilder
+public class AuthenticationDTO extends TokenDTO{
 
-    private String accessToken;
     private Long accessTokenValidityTime;
-    private String refreshToken;
     private Long refreshTokenValidityTime;
 }

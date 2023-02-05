@@ -6,17 +6,17 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Entity
 @Table(name = "person")
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_generator")
-    @SequenceGenerator(name = "user_seq_generator", sequenceName = "user_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_seq_generator")
+    @SequenceGenerator(name = "person_seq_generator", sequenceName = "person_seq", allocationSize = 1)
     @Column(name = "id", nullable = false)
     private Long id;
 

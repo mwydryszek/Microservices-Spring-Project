@@ -13,7 +13,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 	private final AuthFeignClient authFeignClient;
 
-	@PostConstruct
+	//@PostConstruct
 	@Override
 	public void authenticate() {
 		System.out.println(authFeignClient.getAuthorizationToken(new AuthDTO("a", "b")));

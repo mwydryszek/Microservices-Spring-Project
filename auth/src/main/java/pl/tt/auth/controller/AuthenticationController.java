@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.tt.auth.model.AuthenticationDTO;
-import pl.tt.auth.model.LogoutDTO;
-import pl.tt.auth.model.UsernamePasswordDTO;
+import pl.tt.auth.exception.InvalidTokenException;
+import pl.tt.auth.model.*;
 import pl.tt.auth.service.JwtService;
 
 @RestController
@@ -24,9 +23,22 @@ public class AuthenticationController {
 	}
 
 	@PostMapping("/logout")
-	public ResponseEntity<Void> logout(@RequestBody LogoutDTO logoutDTO){
-		jwtService.logout(logoutDTO);
+	public ResponseEntity<Void> logout(@RequestBody TokenDTO tokenDTO){
+		jwtService.logout(tokenDTO);
 		return ResponseEntity.ok().build();
+	}
+
+
+	@PostMapping("/refreshtoken")
+	public ResponseEntity<AuthenticationDTO> refreshToken(@RequestBody TokenDTO tokenDTO) throws InvalidTokenException {
+		return ResponseEntity.ok(jwtService.refreshToken(tokenDTO));
+
+	}
+
+	@PostMapping("/checktoken")
+	public ResponseEntity<CheckTokenDTO> checkToken(@RequestBody AccessTokenDTO accessTokenDTO){
+		return ResponseEntity.ok(jwtService.checkToken(accessTokenDTO));
+
 	}
 
 }
