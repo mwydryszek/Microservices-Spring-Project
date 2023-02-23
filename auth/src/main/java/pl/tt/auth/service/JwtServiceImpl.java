@@ -2,13 +2,11 @@ package pl.tt.auth.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.Jwts;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.map.HashedMap;
 import org.apache.commons.lang.StringUtils;
-import org.apache.el.parser.Token;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -53,6 +51,7 @@ public class JwtServiceImpl implements JwtService {
 
         return buildAuthenticationDTOByUserEntity(userEntity);
     }
+
 
     @Override
     public void logout(TokenDTO tokenDTO) {

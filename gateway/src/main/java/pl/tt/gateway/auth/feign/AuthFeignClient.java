@@ -20,5 +20,6 @@ public interface AuthFeignClient {
 	@RequestMapping(method = RequestMethod.POST, path = "/auth/checkToken")
 	ResponseEntity<CheckTokenDTO> getAuthorizationToken(@RequestBody AccessTokenDTO accessToken);
 
+	@RequestMapping(method = RequestMethod.POST, path = "/auth/test")
 	ResponseEntity<CheckTokenDTO> checkToken(AccessTokenDTO build);
 }

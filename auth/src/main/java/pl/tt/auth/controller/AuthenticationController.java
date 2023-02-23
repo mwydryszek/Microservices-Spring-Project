@@ -29,13 +29,13 @@ public class AuthenticationController {
 	}
 
 
-	@PostMapping("/refreshtoken")
+	@PostMapping("/refreshToken")
 	public ResponseEntity<AuthenticationDTO> refreshToken(@RequestBody TokenDTO tokenDTO) throws InvalidTokenException {
 		return ResponseEntity.ok(jwtService.refreshToken(tokenDTO));
 
 	}
 
-	@PostMapping("/checktoken")
+	@PostMapping("/checkToken")
 	public ResponseEntity<CheckTokenDTO> checkToken(@RequestBody AccessTokenDTO accessTokenDTO){
 		return ResponseEntity.ok(jwtService.checkToken(accessTokenDTO));
 
